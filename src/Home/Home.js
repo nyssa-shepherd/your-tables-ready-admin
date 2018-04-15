@@ -4,16 +4,14 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-
+      user: ''
     }
   }
   
   render() {
     return (
       <div>
-        <header>
-          <h1>Reserant</h1>
-        </header>
+
       </div>
     );
   }
