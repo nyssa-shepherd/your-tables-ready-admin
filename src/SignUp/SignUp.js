@@ -18,6 +18,7 @@ class SignUp extends Component {
     return (
       <div>
         <form>
+          <h3>Sign Up</h3>
           <input type='text'
                  placeholder='Username'
                  value={this.state.username}
@@ -29,7 +30,7 @@ class SignUp extends Component {
                  id='password-input'
           />
           <input type='text'
-                 placeholder='Password'
+                 placeholder='Confirm Password'
                  value={this.state.verifyPassword}
                  id='verify-password-input'
           />
@@ -48,6 +49,7 @@ class SignUp extends Component {
                  value={this.state.phoneNumber}
                  id='phonenumber-input'
           />
+          <button id='sign-up'>Sign Up</button>
         </form>
       </div>
     )

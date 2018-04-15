@@ -2,10 +2,15 @@ form {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 300px;
+  width: 400px;
 }
 
 input {
-  height: 25px;
-  margin: 5px 0;
+  height: 35px;
+  margin: 7px 0;
+}
+
+#sign-up {
+  height: 35px;
+  margin-top: 35px;
 }
