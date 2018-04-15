@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import Home from '../Home/Home';
 import SignUp from '../SignUp/SignUp';
-import Reservations from '../Reservations/Reservations';import Tables from '../Tables/Tables';
+import Reservations from '../Reservations/Reservations';
+import Tables from '../Tables/Tables';
+import './Header.css';
 
 class Header extends Component {
   constructor() {
@@ -17,10 +19,28 @@ class Header extends Component {
         <div>
           <header>
             <h1>Reserant</h1>
-            <NavLink to='/home'>Home</NavLink>
-            <NavLink to='/tables'>Tables</NavLink>
-            <NavLink to='/reservations'>Reservations</NavLink>
-            <NavLink to='/signup'>Sign Up</NavLink>
+            <div>
+              <NavLink 
+                to='/home'
+                className='nav'>
+                  Home
+              </NavLink>
+              <NavLink 
+                to='/tables'
+                className='nav'>
+                  Tables
+              </NavLink>
+              <NavLink 
+                to='/reservations'
+                className='nav'>
+                  Reservations
+              </NavLink>
+              <NavLink 
+                to='/signup'
+                className='nav'>
+                  Sign Up
+              </NavLink>
+            </div>
           </header>
           <div>
             <Route exact path='/home' component={Home} />
