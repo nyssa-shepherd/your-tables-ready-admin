@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { postRestaurant } from '../helper.js';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -14,11 +15,16 @@ class SignUp extends Component {
     }
   }
 
-  updateState = (e) => {
+  updateState = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value }, () => {
       console.log(this.state);
     });  
+  }
+
+  submitRestaurant = e => {
+    e.preventDefault();
+    console.log(postRestaurant())
   }
 
   render() {
@@ -48,18 +54,6 @@ class SignUp extends Component {
                  placeholder='Restaurant Name'
                  value={this.state.name}
                  name='name'
-                 onChange={(e) => this.updateState(e)}
-          />
-          <input type='text'
-                 placeholder='Address'
-                 value={this.state.location}
-                 name='location'
-                 onChange={(e) => this.updateState(e)}
-          />
-          <input type='text'
-                 placeholder='Phone Number'
-                 value={this.state.phoneNumber}
-                 name='phoneNumber'
                  onChange={(e) => this.updateState(e)}
           />
           <button id='sign-up'>Sign Up</button>
