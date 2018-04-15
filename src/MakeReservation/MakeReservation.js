@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Tables extends Component {
+class MakeReservation extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,8 +11,8 @@ class Tables extends Component {
   render() {
     return (
       <div></div>
-    );
+    )
   }
 }
 
-export default Tables;
+export default MakeReservation;
