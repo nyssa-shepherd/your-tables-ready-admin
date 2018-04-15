@@ -22,10 +22,15 @@ class SignUp extends Component {
     });  
   }
 
-  submitRestaurant = async e => {
+  submitRestaurant = async (e) => {
     e.preventDefault();
     const { username, password, name } = this.state;
-    console.log(await postRestaurant(username, password, name))
+    const post = await fetch('http://localhost:3000/api/v1/restaurants', {
+      method: 'POST',
+      body: JSON.stringify({ username, password, restaurant_name: name }),
+      headers: new Headers({ 'Content-Type': 'application/json' })
+    });
+    return await post.json();
   }
 
   render() {
