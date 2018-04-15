@@ -14,40 +14,53 @@ class SignUp extends Component {
     }
   }
 
+  updateState = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value }, () => {
+      console.log(this.state);
+    });  
+  }
+
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.submitRestaurant}>
           <h3>Sign Up</h3>
           <input type='text'
                  placeholder='Username'
                  value={this.state.username}
-                 id='username-input'
+                 name='username'
+                 onChange={(e) => this.updateState(e)}
           />
           <input type='text'
                  placeholder='Password'
                  value={this.state.password}
-                 id='password-input'
+                 name='password'
+                 onChange={(e) => this.updateState(e)}
           />
           <input type='text'
                  placeholder='Confirm Password'
                  value={this.state.verifyPassword}
-                 id='verify-password-input'
+                 name='verifyPassword'
+                 onChange={(e) => this.updateState(e)}
           />
           <input type='text'
                  placeholder='Restaurant Name'
                  value={this.state.name}
-                 id='name-input'
+                 name='name'
+                 onChange={(e) => this.updateState(e)}
           />
           <input type='text'
                  placeholder='Address'
                  value={this.state.location}
-                 id='location-input'
+                 name='location'
+                 onChange={(e) => this.updateState(e)}
           />
           <input type='text'
                  placeholder='Phone Number'
                  value={this.state.phoneNumber}
-                 id='phonenumber-input'
+                 name='phoneNumber'
+                 onChange={(e) => this.updateState(e)}
           />
           <button id='sign-up'>Sign Up</button>
         </form>
