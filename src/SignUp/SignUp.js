@@ -22,9 +22,10 @@ class SignUp extends Component {
     });  
   }
 
-  submitRestaurant = e => {
+  submitRestaurant = async e => {
     e.preventDefault();
-    console.log(postRestaurant())
+    const { username, password, name } = this.state;
+    console.log(await postRestaurant(username, password, name))
   }
 
   render() {
