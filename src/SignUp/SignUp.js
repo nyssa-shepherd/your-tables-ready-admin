@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { postRestaurant } from '../helper.js';
+import { Route, Redirect } from 'react-router';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -11,7 +11,7 @@ class SignUp extends Component {
       verifyPassword: '',
       name: '',
       location: '',
-      phoneNumber: ''
+      phoneNumber: '',
     }
   }
 
@@ -25,15 +25,18 @@ class SignUp extends Component {
   submitRestaurant = async (e) => {
     e.preventDefault();
     const { username, password, name } = this.state;
-    const post = await fetch('http://localhost:3000/api/v1/restaurants', {
+    const post = await fetch('https://restaurant-res-backend.herokuapp.com/api/v1/restaurants', {
       method: 'POST',
       body: JSON.stringify({ username, password, restaurant_name: name }),
       headers: new Headers({ 'Content-Type': 'application/json' })
     });
-    return await post.json();
+    await post.json();
+    await this.setState({ signedIn: true });
   }
 
   render() {
+    this.state.signedIn === true ? <Redirect to='/home' /> : null;
+
     return (
       <div>
         <form onSubmit={this.submitRestaurant}>
