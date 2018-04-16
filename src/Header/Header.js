@@ -3,6 +3,7 @@ import { NavLink, Route } from 'react-router-dom';
 import Home from '../Home/Home';
 import SignUp from '../SignUp/SignUp';
 import Reservations from '../Reservations/Reservations';
+import Locations from '../Locations/Locations';
 import Tables from '../Tables/Tables';
 import './Header.css';
 
@@ -24,6 +25,11 @@ class Header extends Component {
                 to='/home'
                 className='nav'>
                   Home
+              </NavLink>
+              <NavLink 
+                to='/locations'
+                className='nav'>
+                  Locations
               </NavLink>
               <NavLink 
                 to='/tables'
