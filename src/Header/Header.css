@@ -1,16 +1,21 @@
 header {
   align-items: center;
-  background-color: grey;
+  background-color: #2B2B2B;
+  color: white;
   display: flex;
   flex-direction: row;
-  height: 80px;
-  margin-bottom: 50px;
+  font-size: 14px;
+  height: 100px;
   justify-content: space-between;
+  margin-bottom: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .nav {
-  text-decoration: none;
+  color: white;
   margin-left: 10px;
+  text-decoration: none;
 }
 
 .active {

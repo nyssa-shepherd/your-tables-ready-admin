@@ -19,7 +19,7 @@ class Header extends Component {
       return (
         <div>
           <header>
-            <h1>Reserant</h1>
+            <h1>Your Table's Ready</h1>
             <div>
               <NavLink 
                 to='/home'
