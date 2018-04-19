@@ -18,7 +18,7 @@ class Header extends Component {
       return (
         <div>
           <header>
-            <h2>Your Table's Ready</h2>
+            <h2>your table's ready</h2>
             <div>
               <NavLink 
                 to='/home'
