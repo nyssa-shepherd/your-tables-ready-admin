@@ -45,6 +45,7 @@ class Header extends Component {
           </header>
           <div>
             <Route exact path='/home' component={Home} />
+            <Route exact path='/locations' component={Locations} />
             <Route exact path='/reservations' component={Reservations} />
             <Route exact path='/tables' component={Tables} />
           </div>

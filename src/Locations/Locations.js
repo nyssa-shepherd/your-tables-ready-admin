@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddLocation from './AddLocation';
 
 class Locations extends Component {
   constructor() {
@@ -10,7 +11,9 @@ class Locations extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <AddLocation />
+      </div>
     );
   }
 };
