@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class SignIn extends Component {
   constructor() {
@@ -26,12 +27,14 @@ class SignIn extends Component {
   }
 
   checkIfMatch = () => {
-    const { restaurants, username } = this.state;
-    const matchingUsername = restaurants.find(restaurant => restaurant.name === username);
-    console.log(matchingUsername);
+    const { restaurants, username, password } = this.state;
+    const matchingUsername = restaurants.find(restaurant => restaurant.username === username);
+    matchingUsername.password === password ? this.setState({ verified: true }) : this.setState({ verified: false })
   }
 
   render() {
+    const { verified } = this.state;
+    verified ? <Redirect to="/"/> : null
     return (
       <div>
         <form onSubmit={this.fetchUserData}>
