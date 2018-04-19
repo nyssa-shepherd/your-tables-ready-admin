@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loginUser } from '../ReduxFiles/actions/actions';
 
 class SignIn extends Component {
   constructor() {
@@ -21,20 +23,25 @@ class SignIn extends Component {
     e.preventDefault();
     const initalFetch = await fetch('https://restaurant-res-backend.herokuapp.com/api/v1/restaurants');
     const restaurants = await initalFetch.json();
-    await this.setState({ restaurants }, () => {
-      this.checkIfMatch();
-    });
+    await this.setState({ restaurants }, () => this.checkIfMatch() );
+    await this.resetState();
   }
 
   checkIfMatch = () => {
-    const { restaurants, username, password } = this.state;
-    const matchingUsername = restaurants.find(restaurant => restaurant.username === username);
-    matchingUsername.password === password ? this.setState({ verified: true }) : this.setState({ verified: false })
+    const { restaurants, username, password, verified } = this.state;
+    const matchingRestaurant = restaurants.find(restaurant => restaurant.username === username ? restaurant : null);
+
+    matchingRestaurant.password === password ?  this.props.loginUser(matchingRestaurant) : null;
   }
 
-  render() {
-    const { verified } = this.state;
-    verified ? <Redirect to="/"/> : null
+  resetState = () => {
+    this.setState({
+      username: '',
+      password: '',
+    })
+  }
+
+  render() {    
     return (
       <div>
         <form onSubmit={this.fetchUserData}>
@@ -58,4 +65,8 @@ class SignIn extends Component {
   }
 };
 
-export default SignIn;
+export const mapDispatchToProps = dispatch => ({
+  loginUser: user => dispatch(loginUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(SignIn);

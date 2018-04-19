@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App/App.js';
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers/rootReducer.js';
+import rootReducer from './ReduxFiles/reducers/rootReducer';
 import { createStore, applyMiddleware } from 'redux';
 
 const devTools = (
