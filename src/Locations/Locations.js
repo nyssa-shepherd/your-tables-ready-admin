@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddLocation from './AddLocation';
+import './Locations.css';
 
 class Locations extends Component {
   constructor() {
@@ -12,7 +13,9 @@ class Locations extends Component {
   render() {
     return (
       <div>
-        <AddLocation />
+        <div class='screen'>
+          <AddLocation />
+        </div>
       </div>
     );
   }

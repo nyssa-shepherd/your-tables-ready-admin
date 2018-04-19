@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AddLocation.css';
 
 class AddLocation extends Component {
   constructor() {
@@ -36,6 +37,7 @@ class AddLocation extends Component {
                  name='wait_time'
                  onChange={(e) => this.updateState(e)}
           />
+          <button id='add-location'>Add Location</button>
         </form>
       </div>
     );
