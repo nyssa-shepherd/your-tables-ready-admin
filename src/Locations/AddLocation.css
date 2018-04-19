@@ -1,3 +1,8 @@
+.add-location-form {
+  float: left;
+  padding-left: 120px;
+}
+
 #add-location {
   background-color: rgba(243, 243, 243, 0.735);
   border: none;

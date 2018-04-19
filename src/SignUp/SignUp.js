@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import  { loginUser } from '../ReduxFiles/actions/actions';
 import SignIn from '../SignIn/SignIn';
 import './SignUp.css';
 
@@ -20,9 +22,7 @@ class SignUp extends Component {
 
   updateState = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value }, () => {
-      console.log(this.state);
-    });  
+    this.setState({ [name]: value });  
   }
 
   submitRestaurant = async (e) => {
@@ -33,8 +33,13 @@ class SignUp extends Component {
       body: JSON.stringify({ username, password, restaurant_name: name, img_url: url }),
       headers: new Headers({ 'Content-Type': 'application/json' })
     });
-    await post.json();
-    await this.setState({ 
+    const user = await post.json();
+    await this.props.loginUser(user);
+    await this.resetState();
+  }
+
+  resetState = () => {
+    this.setState({ 
       signedIn: true, 
       username: '', 
       password: '', 
@@ -45,8 +50,6 @@ class SignUp extends Component {
   }
 
   render() {
-    this.state.signedIn === true ? <Redirect to='/home' /> : null;
-
     return (
       <div>
         <form onSubmit={this.submitRestaurant}>
@@ -86,6 +89,10 @@ class SignUp extends Component {
       </div>
     );
   }
-}
+};
 
-export default SignUp;
+export const mapDispatchToProps = dispatch => ({
+  loginUser: user => dispatch(loginUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(SignUp);

@@ -13,7 +13,7 @@ class Locations extends Component {
   render() {
     return (
       <div>
-        <div class='screen'>
+        <div className='screen'>
           <AddLocation />
         </div>
       </div>
