@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import SignIn from '../SignIn/SignIn';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -12,6 +14,7 @@ class SignUp extends Component {
       name: '',
       location: '',
       phoneNumber: '',
+      url: ''
     }
   }
 
@@ -24,14 +27,21 @@ class SignUp extends Component {
 
   submitRestaurant = async (e) => {
     e.preventDefault();
-    const { username, password, name } = this.state;
+    const { username, password, verifyPassword, name, url } = this.state;
     const post = await fetch('https://restaurant-res-backend.herokuapp.com/api/v1/restaurants', {
       method: 'POST',
-      body: JSON.stringify({ username, password, restaurant_name: name }),
+      body: JSON.stringify({ username, password, restaurant_name: name, img_url: url }),
       headers: new Headers({ 'Content-Type': 'application/json' })
     });
     await post.json();
-    await this.setState({ signedIn: true });
+    await this.setState({ 
+      signedIn: true, 
+      username: '', 
+      password: '', 
+      verifyPassword: '', 
+      name: '', 
+      url: '' 
+    });
   }
 
   render() {
@@ -65,10 +75,16 @@ class SignUp extends Component {
                  name='name'
                  onChange={(e) => this.updateState(e)}
           />
+          <input type='text'
+                 placeholder='Image Url'
+                 value={this.state.url}
+                 name='url'
+                 onChange={(e) => this.updateState(e)}
+          />
           <button id='sign-up'>Sign Up</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

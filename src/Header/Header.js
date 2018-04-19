@@ -19,7 +19,7 @@ class Header extends Component {
       return (
         <div>
           <header>
-            <h1>Reserant</h1>
+            <h1>Your Table's Ready</h1>
             <div>
               <NavLink 
                 to='/home'
@@ -41,18 +41,12 @@ class Header extends Component {
                 className='nav'>
                   Reservations
               </NavLink>
-              <NavLink 
-                to='/signup'
-                className='nav'>
-                  Sign Up
-              </NavLink>
             </div>
           </header>
           <div>
             <Route exact path='/home' component={Home} />
             <Route exact path='/reservations' component={Reservations} />
             <Route exact path='/tables' component={Tables} />
-            <Route exact path='/signup' component={SignUp} />
           </div>
         </div>
       )
