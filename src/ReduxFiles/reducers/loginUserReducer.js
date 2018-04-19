@@ -1,4 +1,4 @@
-export const loginUserReducer = (state = [], action) => {
+export const loginUserReducer = (state = null, action) => {
   switch (action.type) {
   case 'LOGIN_USER':
     return action.user;
