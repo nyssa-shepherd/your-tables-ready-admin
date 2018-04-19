@@ -12,3 +12,26 @@ body {
   padding-top: 70px;
   width: 100%;
 }
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.Up, .In {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  height: 50px;
+  width: 90px;
+}
+
+.Up:focus, .In:focus {
+  outline: 0;
+}
+
+.Up:hover, .In:hover{
+  cursor: pointer;
+  color: red;
+}

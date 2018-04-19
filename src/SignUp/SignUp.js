@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import SignIn from '../SignIn/SignIn';
 import './SignUp.css';
 
 class SignUp extends Component {
@@ -68,7 +70,7 @@ class SignUp extends Component {
           <button id='sign-up'>Sign Up</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
