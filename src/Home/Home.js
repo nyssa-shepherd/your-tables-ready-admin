@@ -19,7 +19,6 @@ class Home extends Component {
 
   
   render() {
-    console.log(this.props.loggedInUser)
     const sign = this.state.upOrIn === 'Up' ? <SignIn /> : <SignUp />
     const homeView = !this.props.loggedInUser ?  sign : <h1>Your Table's Ready</h1>
     return (
