@@ -12,7 +12,7 @@ class SignIn extends Component {
     return (
       <div>
         <form onSubmit={this.submitRestaurant}>
-          <h3>Sign Up</h3>
+          <h3>Sign In</h3>
           <input type='text'
                  placeholder='Username'
                  value={this.state.username}
