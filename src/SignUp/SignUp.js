@@ -14,6 +14,7 @@ class SignUp extends Component {
       name: '',
       location: '',
       phoneNumber: '',
+      url: ''
     }
   }
 
@@ -26,10 +27,10 @@ class SignUp extends Component {
 
   submitRestaurant = async (e) => {
     e.preventDefault();
-    const { username, password, name } = this.state;
-    const post = await fetch('http://localhost:3000/api/v1/restaurants', {
+    const { username, password, name, url } = this.state;
+    const post = await fetch('https://restaurant-res-backend.herokuapp.com/api/v1/restaurants', {
       method: 'POST',
-      body: JSON.stringify({ username, password, restaurant_name: name }),
+      body: JSON.stringify({ username, password, restaurant_name: name, img_url: url }),
       headers: new Headers({ 'Content-Type': 'application/json' })
     });
     await post.json();
@@ -65,6 +66,12 @@ class SignUp extends Component {
                  placeholder='Restaurant Name'
                  value={this.state.name}
                  name='name'
+                 onChange={(e) => this.updateState(e)}
+          />
+          <input type='text'
+                 placeholder='Image Url'
+                 value={this.state.url}
+                 name='url'
                  onChange={(e) => this.updateState(e)}
           />
           <button id='sign-up'>Sign Up</button>
