@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SignUp from '../SignUp/SignUp';
 import SignIn from '../SignIn/SignIn';
 import './Home.css';
@@ -19,7 +20,7 @@ class Home extends Component {
   
   render() {
     const sign = this.state.upOrIn === 'Up' ? <SignIn /> : <SignUp />
-    const homeView = !this.state.user ?  sign : <h1>Your Table's Ready</h1>
+    const homeView = !this.props.loggedInUser ?  sign : <h1>Your Table's Ready</h1>
     return (
       <div>
         <div className='form-area'>
@@ -36,4 +37,8 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = store => ({
+  loggedInUser: store.loggedInUser
+})
+
+export default connect(mapStateToProps)(Home);
