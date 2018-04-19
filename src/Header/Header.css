@@ -1,6 +1,6 @@
 header {
   align-items: center;
-  background-color: #2B2B2B;
+  background-color: rgb(32, 32, 32);
   color: white;
   display: flex;
   flex-direction: row;
@@ -18,5 +18,6 @@ header {
 }
 
 .active {
-  color: pink;
+  color: rgb(108, 2, 2);
+  border-bottom: rgb(108, 2, 2) 1px solid;
 }
