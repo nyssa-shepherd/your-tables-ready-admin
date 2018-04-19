@@ -41,8 +41,12 @@ class Locations extends Component {
     return (
       <div>
         <div className='screen'>
-          <AddLocation />
-          {renderLocations}
+          <div className='location-screen'>
+            <AddLocation />
+            <div className='cards'>
+              {renderLocations}
+            </div>
+          </div>
         </div>
       </div>
     );
