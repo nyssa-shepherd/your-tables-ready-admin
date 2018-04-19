@@ -27,10 +27,13 @@ class Locations extends Component {
       locations.map(location => {
         return (
           <div className='location-area'>
-            <h3>{location.location}</h3>
-            <p>{location.phone_number}</p>
-            <p>{location.tables_open}</p>
-            <p>{location.wait_time}</p>
+            <h3 className='address'>{location.location}</h3>
+            <p><span className='desribe'>Phone Number: </span> {location.phone_number}</p>
+            <p><span className='desribe'>Tables Open: </span> {location.tables_open}</p>
+            <div className='inline-button'>
+              <p><span className='desribe'>Wait Time: </span> {location.wait_time}</p>
+              <button className='update'>Update</button>
+            </div> 
           </div>
         );
       }) : null;
