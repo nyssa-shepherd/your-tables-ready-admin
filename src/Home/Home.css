@@ -1,10 +1,14 @@
-/* body {
-  background-image: url('../images/rest.jpg');
+body {
+  background-image: url('../images/restaurant.jpg');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover; 
-} */
+}
 
-h1 {
-
+.screen {
+  background-color: rgba(43, 43, 43, 0.6);
+  position: absolute;
+  height: 100%;
+  padding-top: 70px;
+  width: 100%;
 }
