@@ -1,6 +1,6 @@
 .add-location-form {
-  float: left;
-  padding-left: 120px;
+  position: absolute;
+  left: 120px;
 }
 
 #add-location {
