@@ -4,7 +4,7 @@ header {
   color: white;
   display: flex;
   flex-direction: row;
-  font-size: 14px;
+  font-size: 16px;
   height: 100px;
   justify-content: space-between;
   padding-left: 120px;
@@ -13,13 +13,21 @@ header {
 
 .nav {
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  margin-left: 10px;
+  margin-left: 20px;
   text-decoration: none;
+}
+
+.nav:hover {
+  color: rgb(164, 3, 3);
 }
 
 .active {
   color: rgb(108, 2, 2);
-  border-bottom: rgb(108, 2, 2) 1px solid;
+  border-bottom: rgb(108, 2, 2) 2px solid;
+}
+
+.active:hover {
+  color: rgb(108, 2, 2);
 }
