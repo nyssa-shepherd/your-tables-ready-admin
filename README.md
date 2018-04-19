@@ -1,4 +1,4 @@
-# your table's ready
+# your table's ready (business side)
 
 ## Tech Stack 
 
