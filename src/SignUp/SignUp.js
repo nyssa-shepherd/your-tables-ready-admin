@@ -27,14 +27,21 @@ class SignUp extends Component {
 
   submitRestaurant = async (e) => {
     e.preventDefault();
-    const { username, password, name, url } = this.state;
+    const { username, password, verifyPassword, name, url } = this.state;
     const post = await fetch('https://restaurant-res-backend.herokuapp.com/api/v1/restaurants', {
       method: 'POST',
       body: JSON.stringify({ username, password, restaurant_name: name, img_url: url }),
       headers: new Headers({ 'Content-Type': 'application/json' })
     });
     await post.json();
-    await this.setState({ signedIn: true });
+    await this.setState({ 
+      signedIn: true, 
+      username: '', 
+      password: '', 
+      verifyPassword: '', 
+      name: '', 
+      url: '' 
+    });
   }
 
   render() {
