@@ -1,0 +1,39 @@
+.location-area {
+  background-color: rgba(255, 255, 255, 0.758);
+  color: rgb(32, 32, 32);
+  float: right;
+  margin-right: 120px;
+  margin-top: 72px;
+  padding: 10px 20px;
+  width: 420px;
+}
+
+.describe {
+  font-weight: 700;
+}
+
+.address {
+  color: rgb(32, 32, 32)
+}
+
+.update {
+  background-color: rgb(32, 32, 32);
+  border: none;
+  color: white;
+  font-size: 14px;
+  height: 25px;
+  width: 90px;
+}
+
+.update:hover {
+  color: white;
+  cursor: pointer;
+  background-color:  rgb(108, 2, 2);
+}
+
+.inline-button {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

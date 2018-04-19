@@ -19,8 +19,9 @@ class Home extends Component {
 
   
   render() {
+    const { loggedInUser, newUser } = this.props;
     const sign = this.state.upOrIn === 'Up' ? <SignIn /> : <SignUp />
-    const homeView = !this.props.loggedInUser ?  sign : <h1>Your Table's Ready</h1>
+    const homeView = loggedInUser || newUser ? <h1>Your Table's Ready</h1> : sign
     return (
       <div>
         <div className='form-area'>

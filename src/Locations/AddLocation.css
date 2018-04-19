@@ -1,0 +1,22 @@
+.add-location-form {
+  float: left;
+  padding-left: 120px;
+}
+
+#add-location {
+  background-color: rgba(243, 243, 243, 0.735);
+  border: none;
+  font-size: 16px;
+  height: 35px;
+  margin-top: 35px;
+}
+
+#add-location:hover {
+  background-color: rgb(108, 2, 2);
+  color: white;
+  cursor: pointer;
+}
+
+#add-location:focus {
+  outline: 0;
+}

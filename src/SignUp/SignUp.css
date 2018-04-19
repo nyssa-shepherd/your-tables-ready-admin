@@ -1,14 +1,19 @@
+h3 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 22px;
+}
+
 form {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 440px;
+  width: 470px;
 }
 
 input {
   background-color: rgba(255, 255, 255, 0.735);
   border: none;
-  height: 40px;
+  height: 45px;
   margin: 7px 0;
 }
 

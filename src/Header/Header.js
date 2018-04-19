@@ -4,7 +4,6 @@ import Home from '../Home/Home';
 import SignUp from '../SignUp/SignUp';
 import Reservations from '../Reservations/Reservations';
 import Locations from '../Locations/Locations';
-import Tables from '../Tables/Tables';
 import './Header.css';
 
 class Header extends Component {
@@ -19,7 +18,7 @@ class Header extends Component {
       return (
         <div>
           <header>
-            <h1>Your Table's Ready</h1>
+            <h2>Your Table's Ready</h2>
             <div>
               <NavLink 
                 to='/home'
@@ -32,11 +31,6 @@ class Header extends Component {
                   Locations
               </NavLink>
               <NavLink 
-                to='/tables'
-                className='nav'>
-                  Tables
-              </NavLink>
-              <NavLink 
                 to='/reservations'
                 className='nav'>
                   Reservations
@@ -45,8 +39,8 @@ class Header extends Component {
           </header>
           <div>
             <Route exact path='/home' component={Home} />
+            <Route exact path='/locations' component={Locations} />
             <Route exact path='/reservations' component={Reservations} />
-            <Route exact path='/tables' component={Tables} />
           </div>
         </div>
       )
