@@ -14,7 +14,7 @@ This was my idea I had for one of my final projects at Turing School of Software
 * Clone down repo
 * `npm install`
 * `npm start`
-* Open localhost:3000 in the browser
+* Open `localhost:3000` in the browser
 
 ## Screen Shots
 
