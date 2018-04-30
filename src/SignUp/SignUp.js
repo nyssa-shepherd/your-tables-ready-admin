@@ -17,7 +17,8 @@ class SignUp extends Component {
       location: '',
       phoneNumber: '',
       url: '',
-      dontMatch: ''
+      dontMatch: '',
+      isRequired: ''
     }
   }
 
@@ -26,6 +27,11 @@ class SignUp extends Component {
     this.setState({ [name]: value }); 
     
     name === 'password' || 'verifyPassword' ? this.verifyPasswordMatch() : null;
+  }
+
+  inputIsRequired = (e) => {
+    const { value } = e.target;
+    value === '' ? this.setState({ isRequired: 'This field is required.' }) : this.setState({ isRequired: '' })
   }
 
   verifyPasswordMatch = () => {
@@ -58,11 +64,12 @@ class SignUp extends Component {
   }
 
   render() {
-    const { dontMatch } = this.state;
+    const { dontMatch, isRequired } = this.state;
     let dontMatchMessage;
+    let isRequiredMessage;
     
     dontMatch !== '' ? dontMatchMessage = dontMatch : null;
-    console.log(dontMatchMessage)
+    isRequired !== '' ? isRequiredMessage = isRequired : null;
     return (
       <div>
         <form onSubmit={this.verifyPasswordMatch}>
@@ -72,12 +79,15 @@ class SignUp extends Component {
                  placeholder='Username'
                  value={this.state.username}
                  name='username'
+                 onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
           <input type='password'
                  placeholder='Password'
                  value={this.state.password}
                  name='password'
+                 minlength='6'
+                 onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
           <input type='password'
@@ -85,18 +95,21 @@ class SignUp extends Component {
                  value={this.state.verifyPassword}
                  name='verifyPassword'
                  onBlur={ e => this.updateState(e) }
+                 minlength='6'
                  onChange={ e => this.updateState(e) }
           />
           <input type='text'
                  placeholder='Restaurant Name'
                  value={this.state.name}
                  name='name'
+                 onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
           <input type='text'
                  placeholder='Image Url'
                  value={this.state.url}
                  name='url'
+                 onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
           <button id='sign-up'>Sign Up</button>
