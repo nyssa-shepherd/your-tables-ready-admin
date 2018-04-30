@@ -16,13 +16,21 @@ class SignUp extends Component {
       name: '',
       location: '',
       phoneNumber: '',
-      url: ''
+      url: '',
+      dontMatch: ''
     }
   }
 
   updateState = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });  
+    this.setState({ [name]: value }); 
+    
+    name === 'password' || 'verifyPassword' ? this.verifyPasswordMatch() : null;
+  }
+
+  verifyPasswordMatch = () => {
+    const { password, verifyPassword, dontMatch } = this.state;
+    password === verifyPassword ? this.setState({ dontMatch: '' }, () => console.log(dontMatch)) : this.setState({ dontMatch: 'The passwords do not match' }, () => console.log(dontMatch));
   }
 
   submitRestaurant = async (e) => {
@@ -50,10 +58,16 @@ class SignUp extends Component {
   }
 
   render() {
+    const { dontMatch } = this.state;
+    let dontMatchMessage;
+    
+    dontMatch !== '' ? dontMatchMessage = dontMatch : null;
+    console.log(dontMatchMessage)
     return (
       <div>
-        <form onSubmit={this.submitRestaurant}>
+        <form onSubmit={this.verifyPasswordMatch}>
           <h3>Sign Up</h3>
+          <h5>{ dontMatchMessage }</h5>
           <input type='text'
                  placeholder='Username'
                  value={this.state.username}
@@ -70,7 +84,8 @@ class SignUp extends Component {
                  placeholder='Confirm Password'
                  value={this.state.verifyPassword}
                  name='verifyPassword'
-                 onChange={(e) => this.updateState(e)}
+                 onBlur={ e => this.updateState(e) }
+                 onChange={ e => this.updateState(e) }
           />
           <input type='text'
                  placeholder='Restaurant Name'
