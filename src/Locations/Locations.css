@@ -1,3 +1,29 @@
+.locations-nav {
+  align-items: center;
+  display: flex; 
+  flex-direction: row;
+}
+
+.loco-nav {
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.8);
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.loco-nav:hover {
+  color: rgb(164, 3, 3);
+  border-color: rgb(164, 3, 3);
+}
+
+h2 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
 .location-area {
   background-color: rgba(255, 255, 255, 0.758);
   color: rgb(32, 32, 32);

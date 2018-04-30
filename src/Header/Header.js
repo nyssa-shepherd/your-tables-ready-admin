@@ -15,11 +15,15 @@ class Header extends Component {
   }
 
     render() {
+      const { name } = this.props;
+      const user = name ? name.restaurant_name
+        : null;
+
       return (
         <div>
           <header>
             <h2>your table's ready</h2>
-            <div>
+            <div className='nav-area'>
               <NavLink 
                 to='/home'
                 className='nav'>
@@ -35,6 +39,7 @@ class Header extends Component {
                 className='nav'>
                   Reservations
               </NavLink>
+              <h3 className='user'>{user}</h3>
             </div>
           </header>
           <div>

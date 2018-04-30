@@ -16,13 +16,27 @@ class SignUp extends Component {
       name: '',
       location: '',
       phoneNumber: '',
-      url: ''
+      url: '',
+      dontMatch: '',
+      isRequired: ''
     }
   }
 
   updateState = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });  
+    this.setState({ [name]: value }); 
+    
+    name === 'password' || 'verifyPassword' ? this.verifyPasswordMatch() : null;
+  }
+
+  inputIsRequired = (e) => {
+    const { value } = e.target;
+    value === '' ? this.setState({ isRequired: 'This field is required.' }) : this.setState({ isRequired: '' })
+  }
+
+  verifyPasswordMatch = () => {
+    const { password, verifyPassword, dontMatch } = this.state;
+    password === verifyPassword ? this.setState({ dontMatch: '' }, () => console.log(dontMatch)) : this.setState({ dontMatch: 'The passwords do not match' }, () => console.log(dontMatch));
   }
 
   submitRestaurant = async (e) => {
@@ -50,38 +64,52 @@ class SignUp extends Component {
   }
 
   render() {
+    const { dontMatch, isRequired } = this.state;
+    let dontMatchMessage;
+    let isRequiredMessage;
+    
+    dontMatch !== '' ? dontMatchMessage = dontMatch : null;
+    isRequired !== '' ? isRequiredMessage = isRequired : null;
     return (
       <div>
-        <form onSubmit={this.submitRestaurant}>
+        <form onSubmit={this.verifyPasswordMatch}>
           <h3>Sign Up</h3>
+          <h5>{ dontMatchMessage }</h5>
           <input type='text'
                  placeholder='Username'
                  value={this.state.username}
                  name='username'
+                 onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
-          <input type='text'
+          <input type='password'
                  placeholder='Password'
                  value={this.state.password}
                  name='password'
+                 minLength='6'
+                 onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
-          <input type='text'
+          <input type='password'
                  placeholder='Confirm Password'
                  value={this.state.verifyPassword}
                  name='verifyPassword'
-                 onChange={(e) => this.updateState(e)}
+                 onBlur={ e => this.updateState(e) }
+                 minLength='6'
+                 onChange={ e => this.updateState(e) }
           />
           <input type='text'
                  placeholder='Restaurant Name'
                  value={this.state.name}
                  name='name'
+                 onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
           <input type='text'
                  placeholder='Image Url'
                  value={this.state.url}
                  name='url'
+                 onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
           <button id='sign-up'>Sign Up</button>

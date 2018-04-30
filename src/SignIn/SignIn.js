@@ -9,6 +9,7 @@ class SignIn extends Component {
     this.state = {
       username: '',
       password: '',
+      incorrectInput: '',
       verified: false,
       restaurants: null
     }
@@ -28,10 +29,15 @@ class SignIn extends Component {
   }
 
   checkIfMatch = () => {
-    const { restaurants, username, password, verified } = this.state;
+    const { restaurants, username, password, verified, incorrectInput } = this.state;
     const matchingRestaurant = restaurants.find(restaurant => restaurant.username === username ? restaurant : null);
 
-    matchingRestaurant.password === password ?  this.props.loginUser(matchingRestaurant) : null;
+    !matchingRestaurant ? this.setState({ incorrectInput: 'Incorrect username or password.' }) : this.checkForCorrectPassword(matchingRestaurant, password);
+  }
+
+  checkForCorrectPassword = (matchingRestaurant, password) => {
+    matchingRestaurant.password === password ? this.props.loginUser(matchingRestaurant)
+      : this.setState({ incorrectInput: 'Incorrect username or password.' });
   }
 
   resetState = () => {
@@ -42,17 +48,22 @@ class SignIn extends Component {
   }
 
   render() {    
+    const { incorrectInput } = this.state;
+    let incorrectMessage;
+    incorrectInput !== '' ? incorrectMessage = incorrectInput : null;
+
     return (
       <div>
         <form onSubmit={this.fetchUserData}>
           <h3>Sign In</h3>
+          <h5>{ incorrectMessage }</h5>
           <input type='text'
                  placeholder='Username'
                  value={this.state.username}
                  name='username'
                  onChange={(e) => this.updateUserState(e)}
           />
-          <input type='text'
+          <input type='password'
                  placeholder='Password'
                  value={this.state.password}
                  name='password'
