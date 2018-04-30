@@ -32,6 +32,10 @@ class SignIn extends Component {
     const { restaurants, username, password, verified, incorrectInput } = this.state;
     const matchingRestaurant = restaurants.find(restaurant => restaurant.username === username ? restaurant : null);
 
+    !matchingRestaurant ? this.setState({ incorrectInput: 'Incorrect username or password.' }) : this.checkForCorrectPassword(matchingRestaurant, password);
+  }
+
+  checkForCorrectPassword = (matchingRestaurant, password) => {
     matchingRestaurant.password === password ? this.props.loginUser(matchingRestaurant)
       : this.setState({ incorrectInput: 'Incorrect username or password.' });
   }
