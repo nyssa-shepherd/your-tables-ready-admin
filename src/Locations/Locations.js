@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink, Route } from 'react-router-dom';
+import Home from '../Home/Home';
 import AddLocation from './AddLocation';
 import './Locations.css';
 
@@ -23,6 +25,7 @@ class Locations extends Component {
 
   render() {
     const { locations } = this.state;
+    const { loggedInUser } = this.props;
     const renderLocations = locations ? 
       locations.map(location => {
         return (
@@ -37,14 +40,17 @@ class Locations extends Component {
           </div>
         );
       }) : null;
+
+    const showLocationInput = loggedInUser ? <AddLocation /> 
+      : <div className='locations-nav'><NavLink to='/home' className='loco-nav'>Sign up or sign in</NavLink><h2>to view locations.</h2><Route exact path='/home' component={Home} /></div>
       
-    return (
+    return (      
       <div>
         <div className='screen'>
           <div className='location-screen'>
-            <AddLocation />
+            { showLocationInput }
             <div className='cards'>
-              {renderLocations}
+              { renderLocations }
             </div>
           </div>
         </div>
