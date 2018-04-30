@@ -36,7 +36,12 @@ h2 {
   width: 420px;
 }
 
+.rest-name {
+  margin-left: 545px;
+}
+
 .cards {
+  align-items: center;
   display: flex;
   flex-direction: column;
 }

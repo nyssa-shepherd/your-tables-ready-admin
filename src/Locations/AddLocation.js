@@ -36,7 +36,7 @@ class AddLocation extends Component {
       <div>
         <form className='add-location-form'
               onSubmit={this.postNewLocation}>
-          <h3>Add Another Location</h3>
+          <h3 className='add-loco'>Add Another Location</h3>
           <input type='text'
                  placeholder='Address'
                  value={this.state.location}

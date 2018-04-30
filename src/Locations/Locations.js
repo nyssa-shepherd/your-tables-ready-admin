@@ -26,6 +26,8 @@ class Locations extends Component {
   render() {
     const { locations } = this.state;
     const { loggedInUser } = this.props;
+
+    const restaurantName = loggedInUser ? <h2 className='rest-name'>{loggedInUser.restaurant_name}</h2> : null;
     const renderLocations = locations ? 
       locations.map(location => {
         return (
@@ -50,6 +52,7 @@ class Locations extends Component {
           <div className='location-screen'>
             { showLocationInput }
             <div className='cards'>
+              { restaurantName }
               { renderLocations }
             </div>
           </div>
