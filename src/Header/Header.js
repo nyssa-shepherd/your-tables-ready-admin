@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Home from '../Home/Home';
 import SignUp from '../SignUp/SignUp';
 import Reservations from '../Reservations/Reservations';
@@ -15,11 +16,15 @@ class Header extends Component {
   }
 
     render() {
+      const { loggedInUser } = this.props;
+      const user = loggedInUser ? loggedInUser.restaurant_name
+        : null;
+
       return (
         <div>
           <header>
             <h2>your table's ready</h2>
-            <div>
+            <div className='nav-area'>
               <NavLink 
                 to='/home'
                 className='nav'>
@@ -35,6 +40,7 @@ class Header extends Component {
                 className='nav'>
                   Reservations
               </NavLink>
+              <h3 className='user'>{user}</h3>
             </div>
           </header>
           <div>
@@ -48,4 +54,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = store => ({
+  loggedInUser: store.loggedInUser,
+})
+
+export default connect(mapStateToProps)(Header);
