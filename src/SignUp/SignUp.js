@@ -86,7 +86,7 @@ class SignUp extends Component {
                  placeholder='Password'
                  value={this.state.password}
                  name='password'
-                 minlength='6'
+                 minLength='6'
                  onBlur={ e => this.inputIsRequired(e) }
                  onChange={(e) => this.updateState(e)}
           />
@@ -95,7 +95,7 @@ class SignUp extends Component {
                  value={this.state.verifyPassword}
                  name='verifyPassword'
                  onBlur={ e => this.updateState(e) }
-                 minlength='6'
+                 minLength='6'
                  onChange={ e => this.updateState(e) }
           />
           <input type='text'

@@ -20,19 +20,20 @@ class Home extends Component {
   
   render() {
     const { loggedInUser, newUser } = this.props;
+    const { user } = this.state;
+
     const sign = this.state.upOrIn === 'Up' ? <SignIn /> : <SignUp />
     const homeView = loggedInUser || newUser ? 
-      <div><p className='welcome-line'>Give your customers an easier way to make reservations.</p><h1>your table's ready</h1></div> 
-      : sign
+      <div><p className='welcome-line'>Give your customers an easier way to make reservations.</p><h1>Welcome, {loggedInUser.restaurant_name || newUser.restaurant_name}</h1></div> 
+      : <div>{sign}<button onClick={this.toggleScreen} className={this.state.upOrIn}>Sign {this.state.upOrIn}</button></div>
+    //const showButton = loggedInUser || newUser ? null : 
+
     return (
       <div>
         <div className='form-area'>
           <div className='screen'>
             {homeView}
-            <button onClick={this.toggleScreen} 
-                  className={this.state.upOrIn}>
-                  Sign {this.state.upOrIn}
-            </button>
+            {/* {showButton} */}
           </div>
         </div>
       </div>

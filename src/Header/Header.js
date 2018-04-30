@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 import Home from '../Home/Home';
 import SignUp from '../SignUp/SignUp';
 import Reservations from '../Reservations/Reservations';
@@ -16,8 +15,8 @@ class Header extends Component {
   }
 
     render() {
-      const { loggedInUser } = this.props;
-      const user = loggedInUser ? loggedInUser.restaurant_name
+      const { name } = this.props;
+      const user = name ? name.restaurant_name
         : null;
 
       return (
@@ -54,8 +53,4 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = store => ({
-  loggedInUser: store.loggedInUser,
-})
-
-export default connect(mapStateToProps)(Header);
+export default Header;
