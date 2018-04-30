@@ -60,13 +60,13 @@ class SignUp extends Component {
                  name='username'
                  onChange={(e) => this.updateState(e)}
           />
-          <input type='text'
+          <input type='password'
                  placeholder='Password'
                  value={this.state.password}
                  name='password'
                  onChange={(e) => this.updateState(e)}
           />
-          <input type='text'
+          <input type='password'
                  placeholder='Confirm Password'
                  value={this.state.verifyPassword}
                  name='verifyPassword'

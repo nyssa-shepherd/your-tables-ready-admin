@@ -52,7 +52,7 @@ class SignIn extends Component {
                  name='username'
                  onChange={(e) => this.updateUserState(e)}
           />
-          <input type='text'
+          <input type='password'
                  placeholder='Password'
                  value={this.state.password}
                  name='password'
