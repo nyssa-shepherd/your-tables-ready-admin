@@ -8,6 +8,7 @@
   color: rgba(255, 255, 255, 0.8);
   border-bottom: 1.5px solid rgba(255, 255, 255, 0.8);
   font-size: 28px;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -19,6 +20,7 @@
 h2 {
   color: rgba(255, 255, 255, 0.8);
   font-size: 28px;
+  font-weight: 700;
   margin-left: 10px;
 }
 
