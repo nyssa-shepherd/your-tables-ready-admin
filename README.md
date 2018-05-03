@@ -12,9 +12,9 @@ This was my idea I had for one of my final projects at Turing School of Software
 
 ## Corresponding Repos
 
-[Back-End Repo](https://github.com/nyssakeller/your-tables-ready-backend)
+* [Back-End Repo](https://github.com/nyssakeller/your-tables-ready-backend)
 
-[User Client Side (React Native) Repo](https://github.com/nyssakeller/your-tables-ready-native-app)
+* [User Client Side (React Native) Repo](https://github.com/nyssakeller/your-tables-ready-native-app)
 
 ## Learning Goals
 
