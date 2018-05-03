@@ -4,17 +4,22 @@
 
 This was my idea I had for one of my final projects at Turing School of Software and Design. The purpose of "your table's ready" was to make making restaurant reservations in an easier fashion. The admin side of this project is intended to be used by restaurants in order for them to keep track of reservations made by customers. It also allows the restaurant to update the amount of tables available and the current wait time in order to inform customers. 
 
+## Tech Stack 
+
+* JavaScript 
+* React
+* Redux
+
 ## Corresponding Repos
 
 [Back-End Repo](https://github.com/nyssakeller/your-tables-ready-backend)
 
 [User Client Side (React Native) Repo](https://github.com/nyssakeller/your-tables-ready-native-app)
 
-## Tech Stack 
+## Learning Goals
 
-* JavaScript 
-* React
-* Redux
+* Strengthen my skills in React/Redux
+* Strengthen my skills at making request to my own back-end
 
 ## Set Up
 
