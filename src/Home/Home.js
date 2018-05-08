@@ -26,14 +26,12 @@ class Home extends Component {
     const homeView = loggedInUser || newUser ? 
       <div><p className='welcome-line'>Give your customers an easier way to make reservations.</p><h1>Welcome, {loggedInUser.restaurant_name || newUser.restaurant_name}</h1></div> 
       : <div>{sign}<button onClick={this.toggleScreen} className={this.state.upOrIn}>Sign {this.state.upOrIn}</button></div>
-    //const showButton = loggedInUser || newUser ? null : 
 
     return (
       <div>
         <div className='form-area'>
           <div className='screen'>
             {homeView}
-            {/* {showButton} */}
           </div>
         </div>
       </div>
